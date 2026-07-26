@@ -1,78 +1,106 @@
-# MiniCoreV2 - [你的底板名称]
+# MiniCoreV2 
 
-![底板实物图](./images/board-top.jpg)
+本项目致力于为无人机，机械臂等需要轻量化边缘计算平台的工况提供我们的开源解决方案：
+依据于RK3588S国产SOC，CM5形态，并为之设计了我们的底板-- MiniCore-V2
 
-## 📋 简介
 
-基于 RK3588 核心板的扩展底板，适用于 [具体应用场景]。
+![MiniCore-V2 实物图](attachments/IMG_20251229_162550.jpg)
+![MiniCore-V2 实物图](attachments/IMG_20260408_001403.jpg)
 
-## 🔧 硬件参数
+## 项目概览
 
-| 项目 | 规格 |
-|------|------|
-| 板层 | 4层 |
-| 尺寸 | 100mm x 80mm |
-| 供电 | 12V DC |
-| 核心板接口 | MXM 3.0 314pin |
+MiniCore-V2 是一块围绕 RK3588S CM5 核心板设计的轻量化载板，当前仓库已经整理了：
 
-## 🔌 接口列表
+- MiniCore-V2 硬件说明
+    - 主要接口定义与供电说明
+    - 系统镜像与 Rockchip 烧录工具下载入口
+- EMMC 烧录流程
+- OV13855 摄像头基础测试流程
+- ROS1、MAVROS、RealSense、VINS、EGO Planner 的部署参考
 
-| 接口 | 数量 | 说明 |
-|------|------|------|
-| USB 3.0 | 2 | Type-A |
-| USB 2.0 | 2 | Type-A |
-| HDMI | 1 | 输出 |
-| Ethernet | 2 | 千兆 |
-| MIPI CSI | 2 | 摄像头 |
-| MIPI DSI | 1 | 显示屏 |
-| GPIO | 28 | 3.3V |
-| UART | 4 | |
-| I2C | 3 | |
-| SPI | 2 | |
-| SD卡槽 | 1 | |
-| SIM卡槽 | 1 | 4G模组 |
+## 适用方向
 
-## 📍 板载功能
+- 无人机机载边缘计算平台
+- 机械臂与移动机器人控制器
+- 视觉感知与自主规划实验平台
+- 需要国产高性能 SoC 的轻量化嵌入式系统
 
-- [x] RTC 时钟（带电池座）
-- [x] 复位按键
-- [x] 电源指示灯
-- [x] 用户按键 x2
-- [x] 风扇接口
 
-## 📁 文件说明
+## 硬件特点
 
-| 文件 | 说明 |
-|------|------|
-| `MiniCoreV2_SCH.pdf` | 原理图 PDF |
-| `MiniCoreV2_PCB.pdf` | PCB 布局图 |
-| `MiniCoreV2_Source.zip` | 源文件（立创EDA/AD格式） |
-| `MiniCoreV2_Gerber.zip` | Gerber 制板文件 |
-| `BOM.csv` | 物料清单 |
+MiniCore-V2 具备接口总览如下：
 
-## 🚀 快速使用
+- 1x USB3.0 Type-C
+- 1x 全功能 Type-C OTG
+- 4x SH1.0-USB2.0
+- 3x SH1.0-UART
+- 1x SH1.0-PWM x2
+- 1x SH1.0-CAN1
+- 1x SH1.0-SPI0
+- 1x MIPI-CSI
+- 1x MIPI-DSI
+- 1x 8PIN 多功能排母
+- 1x SH1.0 电源输入
+- 1x 用户自定义开关
 
-### 1. 硬件连接
-- 将 RK3588 核心板对准底板接口
-- 固定螺丝
-- 接入 12V 电源
+更详细的引脚定义、复用说明、接线图和实物标注，请查看：
 
-### 2. 上电测试
-- 测量各电源电压：3.3V、1.8V、核心板供电
-- 检查晶振起振
+- [Loki-MiniCoreV2-basesheet.md](Loki-MiniCoreV2-basesheet.md)
 
-## ⚠️ 注意事项
+## 资料导航
 
-1. 上电前请确认核心板安装方向正确
-2. 避免热插拔核心板
-3. 静电防护：操作前触摸接地金属
+### 1. 硬件说明
 
-## 📝 版本记录
+完整硬件文档位于：
 
-| 版本 | 日期 | 修改内容 |
-|------|------|----------|
-| V1.0 | 2025.01 | 初始版本 |
+- [Loki-MiniCoreV2-basesheet.md](Loki-MiniCoreV2-basesheet.md)
 
-## 📜 许可证
+该文档目前包含：
 
-本项目采用 [MIT License](../LICENSE) 开源协议。
+- 硬件实物图
+- 接口总览
+- 电源、风扇、网口、USB、UART、PWM、CAN、SPI 详细说明
+- 8PIN 多功能排母定义
+- MIPI CSI 摄像头说明
+- USB HUB 子板说明
+- 推荐配件与注意事项
+- 系统资源下载
+- 刷机与相机测试流程
+- 自主规划算法部署参考
+
+### 相关参考资料
+- [MID360 Official Website](https://www.livoxtech.com/cn/mid-360)
+- [Quick Start Guide for MID360](https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Mid360/Livox_Mid-360_Quick_Start_Guide_multi.pdf)
+- [MID360 User Manual](https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Mid360/20230727/Livox_Mid-360_User_Manual_CHS.pdf)
+- [Livox SDK2 Source Code](https://github.com/Livox-SDK/Livox-SDK2)
+- [Livox ROS Driver 2 Source Code](https://github.com/Livox-SDK/livox_ros_driver2)
+
+- [Livox ROS Driver 2 Installation Guide](https://blog.csdn.net/qq_29912325/article/details/130269367)
+- [Virtual Machine and MID360 Bridging Guide](https://blog.csdn.net/sinat_39110395/article/details/123545816)
+
+### Livox and Fast-Lio Configuration Process
+1. Install [Livox SDK2](https://github.com/Livox-SDK/Livox-SDK2). The installation steps are detailed in the README. **Note:** Change the host IP to `192.168.1.50`. [How to modify Ubuntu IP](https://blog.csdn.net/sinat_39110395/article/details/123545816). The Lidar IP in this setup is `192.168.1.180`.
+2. Install [Livox ROS Driver 2](https://github.com/Livox-SDK/livox_ros_driver2). Follow the steps in the README. **Note:** Before running, make sure to modify the host IP and Lidar IP in the configuration files.
+3. Configure Fast-LIO:
+
+References:  
+- [FAST_LIO Repository](https://github.com/hku-mars/FAST_LIO)  
+- [FAST-LIO Configuration Guide (Chinese)](https://blog.csdn.net/qq_42108414/article/details/131530293)  
+- [Using MID360 with FAST-LIO2 on ROS1](https://blog.csdn.net/qq_52784762/article/details/132736322)  
+
+
+## 配套与扩展
+
+仓库现有资料中还包含以下内容：
+
+- USB HUB 子板三种工作模式说明
+- 天线、散热器、电源、DCDC、FPC Type-C 线等推荐配件
+- 供电、接线、散热和焊接注意事项
+
+## 使用建议
+
+- 建议使用 5V/5A 或更高规格电源供电
+- 使用 Type-C OTG 烧录时，优先按文档说明操作，避免错误供电
+- USB HUB 模式与供电模式不要同时使用
+- 使用 MIPI 摄像头时，注意 FPC 线方向与 Camera 口选择
+- 涉及 GPIO 复用、焊接改线和散热器改线时，建议有硬件经验后再操作
