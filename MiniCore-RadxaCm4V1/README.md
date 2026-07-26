@@ -12,6 +12,8 @@ MiniCore-RadxaCm4V1 面向需要使用 Radxa CM4 核心板进行轻量化边缘�
 
 ## README 内容
 
+- PCB 文件：[MiniCore-RadxaCm4_V1.1.epro](MiniCore-RadxaCm4_V1.1.epro)
+
 
 - 型号简介
 - 实物图
