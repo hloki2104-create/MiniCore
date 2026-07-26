@@ -1,112 +1,124 @@
 ﻿
-![IMG_20251229_162550.jpg](attachments/IMG_20251229_162550.jpg)
-![IMG_20260408_001403.jpg](attachments/IMG_20260408_001403.jpg)
-![Image_1771601828382_589.jpg](attachments/Image_1771601828382_589.jpg)
+![](<attachments/IMG_20251229_162550.jpg>)
+![](<attachments/IMG_20260408_001403.jpg>)
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Image_1771601828382_589 1.jpg](<attachments/Image_1771601828382_589 1.jpg>)
 
-![IMG_20251228_143226.jpg](attachments/IMG_20251228_143226.jpg)
+![](<attachments/IMG_20251228_143226.jpg>)
 
-# 纭欢璇存槑
-## OrangeCM5鑺墖妗嗗浘
-鏈簳鏉夸笓涓篟K3588CM5鏍稿績鏉胯璁?- RK3588S2
+# 硬件说明
+## OrangeCM5芯片框图
+本底板专为RK3588CM5核心板设计
+- RK3588S2
 - RK3588S1
 ![rock 5c overview](https://docs.radxa.com/img/rock5c/rk3588s2_blockdiagram.webp)
 
-## 瀹炵墿
-![Image_1784983344614_976.jpg](attachments/Image_1784983344614_976.jpg)
-![IMG_20251228_143226.jpg](attachments/IMG_20251228_143226.jpg)
-## 鎺ュ彛鎬昏
+## 实物
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Image_1784983344614_976 1.jpg](<attachments/Image_1784983344614_976 1.jpg>)
+![](<attachments/IMG_20251228_143226.jpg>)
+## 接口总览
 
-![Pasted image 20260601222127.png](attachments/Pasted%20image%2020260601222127.png)
-- 1x USB3.0 (娉ㄦ剰 **浠呭柈闈?* Type-C)
-- 1x 鍏ㄥ姛鑳?Type-C OTG
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260601222127 1.png](<attachments/Pasted image 20260601222127 1.png>)
+- 1x USB3.0 (注意 **仅單面** Type-C)
+- 1x 全功能 Type-C OTG
 - 4x SH1.0-USB2.0
-- 3x SH1.0-UART (鍙暥 GPIO*2)
-- 1x SH1.0-PWM*2 (鍙暥 GPIO*2)
-- 1x SH1.0-CAN1 (鍙暥 GPIO*2)
-- 1x SH1.0-SPI0 (鍙暥 GPIO*2)
+- 3x SH1.0-UART (可當 GPIO*2)
+- 1x SH1.0-PWM*2 (可當 GPIO*2)
+- 1x SH1.0-CAN1 (可當 GPIO*2)
+- 1x SH1.0-SPI0 (可當 GPIO*2)
 - 1x MIPI-CSI
 - 1x MIPI-DSI
-- 1x 8PIN 澶氬姛鑳芥帓姣?(GPIO4锛屽彲鐣跺叐绲?UART/IIC 鎴栦竴绲?SPI锛屽強涓€绲?USB2)
-- 1x SH1.0 闆绘簮杓稿叆
-- 1x 鐢ㄦ埗鑷畾缇╅枊闂?GPIO4_A6
+- 1x 8PIN 多功能排母 (GPIO4，可當兩組 UART/IIC 或一組 SPI，及一組 USB2)
+- 1x SH1.0 電源輸入
+- 1x 用戶自定義開關 GPIO4_A6
 
 
-## 鎺ュ彛璇︽儏
+## 接口详情
 
-### 鐢垫簮鎺ュ彛
+### 电源接口
 
-- **SH1.0 鐢垫簮杈撳叆**锛?V 杈撳叆锛屽甫闃插弽鎺ヤ簩鏋佺
-- **Type-C OTG & PD 杈撳叆**锛氭敮鎸佺儳褰曠郴缁燂紝**寤鸿浣跨敤 5V/4A~6A 鐢垫簮閫傞厤鍣?*
+- **SH1.0 电源输入**：5V 输入，带防反接二极管
+- **Type-C OTG & PD 输入**：支持烧录系统，**建议使用 5V/4A~6A 电源适配器**
 
-**渚涚數璇存槑**锛?![Pasted image 20260725164409.png](attachments/Pasted%20image%2020260725164409.png)
-- 涓婂浘涓孩鍦堢殑 SH1.0 鎺ュ彛锛堜粠涓婂埌涓嬩负 ++--锛夛紝杈撳叆鐢靛帇 5V锛屽甫闃插弽鎺ヤ簩鏋佺
+**供电说明**：
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725164409 1.png](<attachments/Pasted image 20260725164409 1.png>)
+- 上图中红圈的 SH1.0 接口（从上到下为 ++--），输入电压 5V，带防反接二极管
 
-![Pasted image 20260725164421.png](attachments/Pasted%20image%2020260725164421.png)
-- 绾㈠湀涓殑寮€鍏冲湪 **NO** 鐘舵€佹椂锛屽彲浣跨敤 Type-C OTG 渚涚數锛?*璇蜂粎鍦ㄧ儳褰曟椂浣跨敤**锛?
-### PWM椋庢墖鎺ュ彛
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725164421 1.png](<attachments/Pasted image 20260725164421 1.png>)
+- 红圈中的开关在 **NO** 状态时，可使用 Type-C OTG 供电（**请仅在烧录时使用**）
 
-![Pasted image 20260725164026.png](attachments/Pasted%20image%2020260725164026.png)
-PWM 鐢?5V,GPIO1_A7(PWM3-M3, GPIO1-C6(PWM15-M2,GND 绲勬垚
+### PWM风扇接口
 
-### 鏈夌嚎缃戝彛锛堢櫨鍏嗭級
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725164026 1.png](<attachments/Pasted image 20260725164026 1.png>)
+PWM 由 5V,GPIO1_A7(PWM3-M3, GPIO1-C6(PWM15-M2,GND 組成
 
-![Pasted image 20260725164036.png](attachments/Pasted%20image%2020260725164036.png)
-鎻愪緵鐧惧厗浠ュお缃戞帴鍙ｃ€?![qq_pic_merged_1784983637351.jpg](attachments/qq_pic_merged_1784983637351.jpg)
+### 有线网口（百兆）
+
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725164036 1.png](<attachments/Pasted image 20260725164036 1.png>)
+提供百兆以太网接口。
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/qq_pic_merged_1784983637351 1.jpg](<attachments/qq_pic_merged_1784983637351 1.jpg>)
 
 | Pin | Name      | Pin | Name      |
 | --- | --------- | --- | --------- |
 | 1   | ETH0_D+   | 2   | ETH0_D-   |
 | 3   | ETH1_D+   | 4   | ETH1_D-   |
 
-瀵瑰簲 RJ45 鐨?1銆?銆?銆? 寮曡剼銆?
-鎺ョ嚎鍥撅細
-![Image_1784983013643_394.jpg](attachments/Image_1784983013643_394.jpg)
-### SH1.0-USB2.0 鎺ュ彛
-![Pasted image 20260725164051.png](attachments/Pasted%20image%2020260725164051.png)
+对应 RJ45 的 1、2、3、6 引脚。
 
-| 寮曡剼 | 淇″彿 |
+接线图：
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Image_1784983013643_394 1.jpg](<attachments/Image_1784983013643_394 1.jpg>)
+### SH1.0-USB2.0 接口
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725164051 1.png](<attachments/Pasted image 20260725164051 1.png>)
+
+| 引脚 | 信号 |
 |------|------|
 | 1 | 5V |
 | 2 | D- |
 | 3 | D+ |
 | 4 | GND |
 
-### SH1.0-UART 鎺ュ彛锛堝彲褰?GPIO脳2锛?![Pasted image 20260725205805.png](attachments/Pasted%20image%2020260725205805.png)
-鎵€鏈?UART 鎺ュ彛寮曡剼鎺掑垪锛堜粠宸﹀埌鍙筹級锛歚5V` `(Rx)` `(Tx)` `GND`
+### SH1.0-UART 接口（可当 GPIO×2）
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725205805 1.png](<attachments/Pasted image 20260725205805 1.png>)
+所有 UART 接口引脚排列（从左到右）：`5V` `(Rx)` `(Tx)` `GND`
 
-| 鎺ュ彛 | Rx 寮曡剼 | Tx 寮曡剼 |
+| 接口 | Rx 引脚 | Tx 引脚 |
 |------|---------|---------|
 | UART1-M1 | GPIO1_B7 | GPIO1_B6 |
 | UART2-M1 | GPIO4_D1 | GPIO4_D0 |
 | UART4-M2 | GPIO1_B2 | GPIO1_B3 |
 | UART6-M1 | GPIO1_A0 | GPIO1_A1 |
 
-### SH1.0-PWM 鎺ュ彛锛堝彲褰?GPIO脳2锛?
-寮曡剼鎺掑垪锛堜粠宸﹀埌鍙筹級锛歚5V` `PWM1` `PWM2` `GND`
+### SH1.0-PWM 接口（可当 GPIO×2）
 
-| 鎺ュ彛 | 寮曡剼 | 鍔熻兘 |
+引脚排列（从左到右）：`5V` `PWM1` `PWM2` `GND`
+
+| 接口 | 引脚 | 功能 |
 |------|------|------|
-| PWM3-M3 | GPIO1_A7 | PWM 杈撳嚭 |
-| PWM15-M2 | GPIO1_C6 | PWM 杈撳嚭 |
+| PWM3-M3 | GPIO1_A7 | PWM 输出 |
+| PWM15-M2 | GPIO1_C6 | PWM 输出 |
 
-### SH1.0-CAN 鎺ュ彛锛堝彲褰?GPIO脳2锛?
-寮曡剼鎺掑垪锛堜粠宸﹀埌鍙筹級锛歚5V` `CAN_Rx` `CAN_Tx` `GND`
+### SH1.0-CAN 接口（可当 GPIO×2）
 
-| 鎺ュ彛 | Rx 寮曡剼 | Tx 寮曡剼 |
+引脚排列（从左到右）：`5V` `CAN_Rx` `CAN_Tx` `GND`
+
+| 接口 | Rx 引脚 | Tx 引脚 |
 |------|---------|---------|
 | CAN1-M1 | GPIO4_B2 | GPIO4_B3 |
 
-### SH1.0-SPI 鎺ュ彛锛堝彲褰?GPIO脳2锛?
-**SPI0-M2 寮曡剼鍒嗛厤**锛?
-| 淇″彿 | 寮曡剼锛堝乏鍥撅級 | 淇″彿 | 寮曡剼锛堝彸鍥撅級 |
+### SH1.0-SPI 接口（可当 GPIO×2）
+
+**SPI0-M2 引脚分配**：
+
+| 信号 | 引脚（左图） | 信号 | 引脚（右图） |
 |------|-------------|------|-------------|
 | MOSI | GPIO1_B2 | CS0 | GPIO1_B4 |
 | CLK  | GPIO1_B3 | MISO | GPIO1_B1 |
 | 5V   | -          | GND  | -           |
 
-### 8PIN 澶氬姛鑳芥帓姣?![Pasted image 20260725163951.png](attachments/Pasted%20image%2020260725163951.png)
-鎵嬫嬁鎺掓瘝浠庡乏鍒板彸寮曡剼瀹氫箟锛?
-| 寮曡剼 | 淇″彿 |
+### 8PIN 多功能排母
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725163951 1.png](<attachments/Pasted image 20260725163951 1.png>)
+手拿排母从左到右引脚定义：
+
+| 引脚 | 信号 |
 |------|------|
 | 1 | GPIO1-D0 |
 | 2 | GPIO1-D1 |
@@ -117,9 +129,9 @@ PWM 鐢?5V,GPIO1_A7(PWM3-M3, GPIO1-C6(PWM15-M2,GND 绲勬垚
 | 7 | GND |
 | 8 | 5V |
 
-#### 鍔熻兘澶嶇敤閰嶇疆
+#### 功能复用配置
 
-| 鍔熻兘 | 寮曡剼鏄犲皠 |
+| 功能 | 引脚映射 |
 |------|----------|
 | UART6-M2 | Rx=GPIO1-D1, Tx=GPIO1-D0 |
 | IIC7-M0 | SDA=GPIO1-D1, SCL=GPIO1-D0 |
@@ -127,184 +139,212 @@ PWM 鐢?5V,GPIO1_A7(PWM3-M3, GPIO1-C6(PWM15-M2,GND 绲勬垚
 | IIC1-M4 | SDA=GPIO1-D3, SCL=GPIO1-D2 |
 | SPI1-M2 | MISO=GPIO1-D0, MOSI=GPIO1-D1, CLK=GPIO1-D2, CS0=GPIO1-D3 |
 
-#### GPIO 鐢靛帇瑙勬牸
+#### GPIO 电压规格
 
-| GPIO 绫诲瀷 | 鐢靛帇 | 鏈€楂樿€愬帇 |
+| GPIO 类型 | 电压 | 最高耐压 |
 |-----------|------|----------|
-| 鎵€鏈?GPIO | 3.3V | 3.63V |
+| 所有 GPIO | 3.3V | 3.63V |
 
 ### MICRO HDMI
 
-閰嶅mICRO HDMI 鎺ュ彛
-![Pasted image 20260725225953.png](attachments/Pasted%20image%2020260725225953.png)
-**鐗规€?*锛欻DMI 鎺ュ彛鎺ュ叆浜?EEPROM锛屽彲浠ヤ笉鎻掕楠楀櫒鍦?NoMachine 杩滅▼浣跨敤銆傞姗欐淳 CM5/5B 鐨勭郴缁熶笉闇€瑕佽楠楀櫒鍗冲彲杩滅▼銆?
-### USB 鎺ュ彛
-![Pasted image 20260725205519.png](attachments/Pasted%20image%2020260725205519.png)
+配备mICRO HDMI 接口
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725225953 1.png](<attachments/Pasted image 20260725225953 1.png>)
+**特性**：HDMI 接口接入了 EEPROM，可以不插诱骗器在 NoMachine 远程使用。香橙派 CM5/5B 的系统不需要诱骗器即可远程。
 
-**鈿狅笍 娉ㄦ剰锛侊紒锛乁SB3.0鎺ュ彛涓哄崟闈紒锛佽瘑鍒笉鍒版垨鑰呮棤娉曟弧瓒宠姹傚彲浠ュ皾璇曟洿鎹㈠弽闈紒锛侊紒**
+### USB 接口
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725205519 1.png](<attachments/Pasted image 20260725205519 1.png>)
 
-![Pasted image 20260725205655.png](attachments/Pasted%20image%2020260725205655.png)
-![Pasted image 20260725205700.png](attachments/Pasted%20image%2020260725205700.png)
+**⚠️ 注意！！！USB3.0接口为单面！！识别不到或者无法满足要求可以尝试更换反面！！！**
 
-| 鎺ュ彛绫诲瀷 | 鏁伴噺 | 璇存槑 |
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725205655 1.png](<attachments/Pasted image 20260725205655 1.png>)
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725205700 1.png](<attachments/Pasted image 20260725205700 1.png>)
+
+| 接口类型 | 数量 | 说明 |
 |----------|------|------|
-| USB3.0 Type-C | 1 | 鍗曢潰 |
-| 鍏ㄥ姛鑳?Type-C OTG | 1 | 鍙敤浜庣儳褰曠郴缁燂紙鎸変綇 BOOT 鍐嶄笂鐢碉級 |
+| USB3.0 Type-C | 1 | 单面 |
+| 全功能 Type-C OTG | 1 | 可用于烧录系统（按住 BOOT 再上电） |
 | SH1.0-USB2.0 | 4 | 5V/D-/D+/GND |
 
 
 ### MIPI CSI
 
-![IMG_20260725_202349.jpg](attachments/IMG_20260725_202349.jpg)
-鏀寔 MIPI 鎽勫儚澶? 閲囩敤浜?31PIN 0.3mm 鑴氳窛 FH35C-31S-0.3SHW(50) 闀€閲戝骇瀛愩€?
-鍙傝€僛1300涓囧儚绱犳憚鍍忓ご锛?3855锛塢(http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/13-MP-Camera-13855.html)
-![qq_pic_merged_1784983525640 1.jpg](attachments/qq_pic_merged_1784983525640%201.jpg)
+![](<attachments/IMG_20260725_202349.jpg>)
+支持 MIPI 摄像头, 采用了 31PIN 0.3mm 脚距 FH35C-31S-0.3SHW(50) 镀金座子。
 
-鐩墠寮€鍙戞澘鏀寔涓ゆMIPI鎽勫儚澶达紝OV13850 鍜孫V13855
-鍏蜂綋鐨勫浘鐗囧涓嬫墍绀猴細
-![Pasted image 20260725205144.png](attachments/Pasted%20image%2020260725205144.png)
-a. 1300 涓嘙IPI鎺ュ彛鐨凮V13850 鎽勫儚澶?
-![Pasted image 20260725205150.png](attachments/Pasted%20image%2020260725205150.png)
-b. 1300 涓嘙IPI鎺ュ彛鐨凮V13855 鎽勫儚澶淬€?
-OV13850 鍜孫V13855 鎽勫儚澶翠娇鐢ㄧ殑杞帴鏉垮拰FPC鎺掔嚎鏄竴鏍风殑锛屽彧鏄袱娆炬憚鍍?澶存帴鍦ㄨ浆鎺ユ澘涓婄殑浣嶇疆涓嶄竴鏍枫€?FPC鎺掔嚎濡備笅鍥炬墍绀猴紝
-![Pasted image 20260725205208.png](attachments/Pasted%20image%2020260725205208.png)
-璇锋敞鎰廎PC鎺掔嚎鏄湁鏂瑰悜鐨勶紝
-鏍囨敞TO MB閭ｇ闇€瑕佹彃鍒板紑鍙戞澘鐨勬憚鍍忓ご鎺ュ彛涓紝鏍囨敞TO CAMERA閭ｇ闇€瑕佹彃鍒?鎽勫儚澶磋浆鎺ユ澘涓娿€?绯荤粺涓彧鏈?CAM1 鍙互鐢ㄦ潵鎺?OV13850 鎴?OV13855 鎽勫儚澶淬€?
+参考[1300万像素摄像头（13855）](http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/13-MP-Camera-13855.html)
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/qq_pic_merged_1784983525640 1 1.jpg](<attachments/qq_pic_merged_1784983525640 1 1.jpg>)
+
+目前开发板支持两款MIPI摄像头，OV13850 和OV13855
+具体的图片如下所示：
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725205144 1.png](<attachments/Pasted image 20260725205144 1.png>)
+a. 1300 万MIPI接口的OV13850 摄像头
+
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725205150 1.png](<attachments/Pasted image 20260725205150 1.png>)
+b. 1300 万MIPI接口的OV13855 摄像头。
+
+OV13850 和OV13855 摄像头使用的转接板和FPC排线是一样的，只是两款摄像
+头接在转接板上的位置不一样。
+FPC排线如下图所示，
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725205208 1.png](<attachments/Pasted image 20260725205208 1.png>)
+请注意FPC排线是有方向的，
+标注TO MB那端需要插到开发板的摄像头接口中，标注TO CAMERA那端需要插到
+摄像头转接板上。
+系统中只有 CAM1 可以用来接 OV13850 或 OV13855 摄像头。
 
 
-### 鐢ㄦ埛鑷畾涔夊紑鍏?
-- **GPIO4_A6**锛氱敤鎴疯嚜瀹氫箟鎸夐敭
+
+### 用户自定义开关
+
+- **GPIO4_A6**：用户自定义按键
 
 ---
 
-### USB HUB 瀛愭澘璇存槑
-![IMG_20260725_202438.jpg](attachments/IMG_20260725_202438.jpg)
-#### 宸ヤ綔妯″紡
+### USB HUB 子板说明
+![](<attachments/IMG_20260725_202438.jpg>)
+#### 工作模式
 
-| 妯″紡 | 璇存槑 |
+| 模式 | 说明 |
 |------|------|
-| **妯″紡涓€锛氱嫭绔?USB HUB** | Type-C 鎺ュ彛浣滀负 USB HUB 杈撳叆锛屽彲杩炴帴鐢佃剳浣跨敤锛屼篃鍙帴鍏?5V/4A 閫傞厤鍣ㄤ緵鐢?|
-| **妯″紡浜岋細CM5 渚涚數鍣?* | Type-C 鎺ュ叆 5V/4A 閫傞厤鍣紝鍙充晶 SH1.0 鍙ｈ緭鍑虹數婧愮粰 CM5 渚涚數锛堟鏃?USB HUB 鍔熻兘涓嶅彲鐢級 |
-| **妯″紡涓夛細CM5 USB HUB** | 灏?USBIN 鐨?SH1.0 鎺ュ叆 CM5 鐨?SH1.0 USB 鎺ュ彛锛屼綔涓?CM5 鐨?USB HUB 浣跨敤 |
+| **模式一：独立 USB HUB** | Type-C 接口作为 USB HUB 输入，可连接电脑使用，也可接入 5V/4A 适配器供电 |
+| **模式二：CM5 供电器** | Type-C 接入 5V/4A 适配器，右侧 SH1.0 口输出电源给 CM5 供电（此时 USB HUB 功能不可用） |
+| **模式三：CM5 USB HUB** | 将 USBIN 的 SH1.0 接入 CM5 的 SH1.0 USB 接口，作为 CM5 的 USB HUB 使用 |
 
-#### USB HUB 鎺ュ彛鍒嗛厤
-![Pasted image 20260725201619.png](attachments/Pasted%20image%2020260725201619.png)
-- 2 脳 USB-A
-- 2 脳 SH1.0 USB锛堢數婧愯緭鍑轰负 3.3V锛?
-> **鈿狅笍 娉ㄦ剰**锛氫緵鐢垫ā寮忓拰 USB HUB 妯″紡涓嶈兘鍚屾椂宸ヤ綔锛?
+#### USB HUB 接口分配
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725201619 1.png](<attachments/Pasted image 20260725201619 1.png>)
+- 2 × USB-A
+- 2 × SH1.0 USB（电源输出为 3.3V）
+
+> **⚠️ 注意**：供电模式和 USB HUB 模式不能同时工作！
+
 ---
 
-## 馃洅 鎺ㄨ崘閰嶄欢
+## 🛒 推荐配件
 
-### 1. 澶╃嚎
-- 鍨嬪彿锛欶PC 25脳9mm锛孖PEX 4浠ｆ帴鍙?- 閾炬帴锛歔鐐瑰嚮鏌ョ湅](https://e.tb.cn/h.hokmrR7hdwkJPQp?tk=bnwb4TbYVtf)
+### 1. 天线
+- 型号：FPC 25×9mm，IPEX 4代接口
+- 链接：[点击查看](https://e.tb.cn/h.hokmrR7hdwkJPQp?tk=bnwb4TbYVtf)
 
-### 2. 鏁ｇ儹鍣?![Screenshot_2026-07-25-21-03-13-344_com.taobao.ta.jpg](attachments/Screenshot_2026-07-25-21-03-13-344_com.taobao.ta.jpg)
-- **闇€瑕佹敼绾胯矾**锛氬皢鍘熺嚎搴忔敼涓猴細榛?鈫?榛?鈫?钃?鈫?绾?- 閾炬帴锛歔鐐瑰嚮鏌ョ湅](https://e.tb.cn/h.hr61t6j4rWMbQmj?tk=Tc7C4iwU7TM)
+### 2. 散热器
+![](<attachments/Screenshot_2026-07-25-21-03-13-344_com.taobao.ta.jpg>)
+- **需要改线路**：将原线序改为：黑 → 黄 → 蓝 → 红
+- 链接：[点击查看](https://e.tb.cn/h.hr61t6j4rWMbQmj?tk=Tc7C4iwU7TM)
 
-### 3. 鐢垫簮閫傞厤鍣?- 瑙勬牸锛?V/5A
-- 閾炬帴锛歔鐐瑰嚮鏌ョ湅](https://e.tb.cn/h.hLXRHAoSP7hww9J?tk=DwtO4Tb3Y0S)
+### 3. 电源适配器
+- 规格：5V/5A
+- 链接：[点击查看](https://e.tb.cn/h.hLXRHAoSP7hww9J?tk=DwtO4Tb3Y0S)
 
-### 4. 5V DCDC 妯″潡
-- 閾炬帴锛歔鐐瑰嚮鏌ョ湅](https://e.tb.cn/h.hoktLvvIXoDKxrg?tk=yvd44Tb5gnL)
+### 4. 5V DCDC 模块
+- 链接：[点击查看](https://e.tb.cn/h.hoktLvvIXoDKxrg?tk=yvd44Tb5gnL)
 
-### 5. FPC Type-C 绾?- 瑙勬牸锛?*鏃犺姱鐗?*鐗堟湰
-- 閾炬帴锛歔鐐瑰嚮鏌ョ湅](https://e.tb.cn/h.hI1fzRUwbJa73Sp?tk=eQ164RPfhXx)
+### 5. FPC Type-C 线
+- 规格：**无芯片**版本
+- 链接：[点击查看](https://e.tb.cn/h.hI1fzRUwbJa73Sp?tk=eQ164RPfhXx)
 
-## 鈿狅笍 娉ㄦ剰浜嬮」
+## ⚠️ 注意事项
 
-1. **渚涚數瑕佹眰**锛氬缓璁娇鐢?5V/5A 鎴栨洿楂樿鏍肩殑鐢垫簮
-2. **闃插弽鎺?*锛歋H1.0 鐢垫簮杈撳叆宸插甫闃插弽鎺ヤ簩鏋佺锛屼絾 Type-C 杈撳叆鏃犱繚鎶?3. **USB HUB 妯″紡**锛氫緵鐢垫ā寮忓拰 USB HUB 妯″紡涓嶈兘鍚屾椂浣跨敤
-4. **鏁ｇ儹鍣ㄦ敼瑁?*锛氳喘涔版暎鐑櫒鍚庤鎸夎鏄庢敼绾垮簭
-5. **鐒婃帴鎿嶄綔**锛氬闇€淇敼 40-Pin USB 鍔熻兘閰嶇疆锛屽缓璁敱鏈夌粡楠岀殑鎶€鏈汉鍛樺畬鎴?
-# 璧勬簮涓嬭浇姹囨€?
+1. **供电要求**：建议使用 5V/5A 或更高规格的电源
+2. **防反接**：SH1.0 电源输入已带防反接二极管，但 Type-C 输入无保护
+3. **USB HUB 模式**：供电模式和 USB HUB 模式不能同时使用
+4. **散热器改装**：购买散热器后请按说明改线序
+5. **焊接操作**：如需修改 40-Pin USB 功能配置，建议由有经验的技术人员完成
 
-## 鎿嶄綔绯荤粺闀滃儚
+# 资源下载汇总
 
-### 鎻愪緵绠€鍗曢€傞厤鐨勬搷浣滅郴缁熼暅鍍?
-**MiniCoreV2绯荤粺**
+
+## 操作系统镜像
+
+### 提供简单适配的操作系统镜像
+
+**MiniCoreV2系统**
 -    Ubuntu20.04
-	瑁呭ソros1,realsense,vins ego(娌″仛璋冭瘯)
+	装好ros1,realsense,vins ego(没做调试)
 	```
-	鐢ㄦ埗鍚?orangepi 瀵嗙⒓(灏忓L):l
+	用戶名:orangepi 密碼(小寫L):l
 	```
 	https://pan.baidu.com/s/1dXIxiatij07BU-YQQDy7Aw?pwd=rgex
 
-**loki鐨剈buntu20绯荤粺**
--    Ubuntu20.04(绾郴缁熸棤杞欢锛屽埛鏈烘垨鍏朵粬浣跨敤)
+**loki的ubuntu20系统**
+-    Ubuntu20.04(纯系统无软件，刷机或其他使用)
 	
 	
-	鐢ㄦ埗鍚?orangepi 瀵嗙⒓(灏忓L):l
+	用戶名:orangepi 密碼(小寫L):l
 	
 	https://pan.baidu.com/s/1_ds5qjKl700lFKau_oatoA?pwd=ngis
 
-**璀﹀憡**
-闄や簡涓婇潰鐨勯暅鍍忕粡杩囨祴璇曞彲浠ヤ娇鐢ㄥ锛屽叾浠栧巶瀹堕暅鍍忔湭缁忚繃娴嬭瘯锛屽彲鑳戒細瀛樺湪鏈煡闂锛屼粎鐢ㄤ簬璇勪及浣跨敤銆?
-**澶囨敞**
-鐩墠MiniCoreV2鎻愪緵鐨凩inux 闀滃儚浠呬负 ROS1鍙互浣跨敤鐨刄buntu20.04 鐗堟湰锛屽叾浠? 鐗堟湰鏆備笉鎻愪緵
+**警告**
+除了上面的镜像经过测试可以使用外，其他厂家镜像未经过测试，可能会存在未知问题，仅用于评估使用。
+
+**备注**
+目前MiniCoreV2提供的Linux 镜像仅为 ROS1可以使用的Ubuntu20.04 版本，其他  版本暂不提供
 
 
-## RK绯荤粺宸ュ叿
- - RK瀹樻柟鐨凟MMC鐕掗寗宸ュ叿
+## RK系统工具
+ - RK官方的EMMC燒錄工具
 	 **RKDevTool_v3.15:**
 	
 	https://pan.baidu.com/s/15GJD84DV1e0mozEdzKbzkQ?pwd=j1d6
 
 
-# 蹇€熶笂鎵?
-## 1. 瀹夎绯荤粺鍒?EMMC鍗?
-### 1. Type-C OTG 鐑у綍
+# 快速上手 
+## 1. 安装系统到 EMMC卡
 
-鎸変綇 **BOOT / MaskROM** 鎸夐敭鍐嶄笂鐢碉紝鍗冲彲杩涘叆鐑у綍妯″紡杩涜绯荤粺鐑у綍銆?
-### 2. 涓嬭級EMMC鐕掗寗宸ュ叿RKDevTool_v3.15
+### 1. Type-C OTG 烧录
 
-- 涓嬭浇瑙ｅ帇鍚庯紝閫夋嫨DriverAssitant_v5.12鏂囦欢澶圭殑Driverinstall鏂囦欢
+按住 **BOOT / MaskROM** 按键再上电，即可进入烧录模式进行系统烧录。
 
-![Pasted image 20260725211640.png](attachments/Pasted%20image%2020260725211640.png)
-![Pasted image 20260725211647.png](attachments/Pasted%20image%2020260725211647.png)
+### 2. 下載EMMC燒錄工具RKDevTool_v3.15
 
-- 鐐瑰嚮鍚姩锛岃窡闅忔寚寮曞畬鎴愬伐鍏蜂笅杞?
-![Pasted image 20260725211924.png](attachments/Pasted%20image%2020260725211924.png)
+- 下载解压后，选择DriverAssitant_v5.12文件夹的Driverinstall文件
 
-###  3. 绯荤粺鍥轰欢涓嬭浇
-- 杩炴帴杩涘叆BOOT妯″紡鐨勪富鏈猴紝鍚姩绋嬪簭
-- ![Pasted image 20260725223908.png](attachments/Pasted%20image%2020260725223908.png)
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725211640 1.png](<attachments/Pasted image 20260725211640 1.png>)
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725211647 1.png](<attachments/Pasted image 20260725211647 1.png>)
 
-- 鐐瑰嚮娴忚閿紝閫夋嫨缃戠洏涓嬭浇濂界殑鍥轰欢
+- 点击启动，跟随指引完成工具下载
 
-![Pasted image 20260725222746.png](attachments/Pasted%20image%2020260725222746.png)
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725211924 1.png](<attachments/Pasted image 20260725211924 1.png>)
+
+###  3. 系统固件下载
+- 连接进入BOOT模式的主机，启动程序
+- ![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725223908 1.png](<attachments/Pasted image 20260725223908 1.png>)
+
+- 点击浏览键，选择网盘下载好的固件
+
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725222746 1.png](<attachments/Pasted image 20260725222746 1.png>)
  
- - 閫夋嫨EMMC涓嬭浇
+ - 选择EMMC下载
 
-![Pasted image 20260725224009.png](attachments/Pasted%20image%2020260725224009.png)
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725224009 1.png](<attachments/Pasted image 20260725224009 1.png>)
 
-- 寮哄埗鍦板潃鍒峰啓
-![Pasted image 20260725224129.png](attachments/Pasted%20image%2020260725224129.png)
+- 强制地址刷写
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725224129 1.png](<attachments/Pasted image 20260725224129 1.png>)
 
-- **鏂數閲嶅惎鍚庡嵆鍙繘鍏ョ郴缁?*
+- **断电重启后即可进入系统**
 
 
-## 2.OV13855鎽勫儚澶寸殑绠€鍗曟祴璇?![qq_pic_merged_1784983525640 2.jpg](attachments/qq_pic_merged_1784983525640%202.jpg)
-### 聽璁惧鏍戦厤缃?
-- 鎵撳紑缁堢锛岃繍琛?*orangepi-config**鍛戒护锛屾櫘閫氱敤鎴疯寰楀姞**sudo**鏉冮檺
+## 2.OV13855摄像头的简单测试
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/qq_pic_merged_1784983525640 2 1.jpg](<attachments/qq_pic_merged_1784983525640 2 1.jpg>)
+###  设备树配置
+
+- 打开终端，运行**orangepi-config**命令，普通用户记得加**sudo**权限
 ```
 sudo orangepi-config
 ```
 
--  閫氳繃聽[璁惧鏍戦厤缃甝聽鏉ュ惎鐢燙M5 Camera1聽鐨?Overlay
+-  通过 [设备树配置] 来启用 CM5 Camera1 的 Overlay
 
-	 閫夋嫨System
-![Pasted image 20260725231655.png](attachments/Pasted%20image%2020260725231655.png)
-	閫夋嫨Hardware
-![Pasted image 20260725231705.png](attachments/Pasted%20image%2020260725231705.png)
-	涓嬫粦閫夋嫨  **opicm5-tablet-cam1**
-![Pasted image 20260725231721.png](attachments/Pasted%20image%2020260725231721.png)
+	 选择System
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725231655 1.png](<attachments/Pasted image 20260725231655 1.png>)
+	选择Hardware
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725231705 1.png](<attachments/Pasted image 20260725231705 1.png>)
+	下滑选择  **opicm5-tablet-cam1**
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725231721 1.png](<attachments/Pasted image 20260725231721 1.png>)
 
-![Pasted image 20260725231747.png](attachments/Pasted%20image%2020260725231747.png)
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725231747 1.png](<attachments/Pasted image 20260725231747 1.png>)
 
- ### 閲嶅惎绯荤粺
+ ### 重启系统
 
-- 杩涘叆缁堢 渚濇娴嬭瘯涓ゆ潯鑴氭湰鍛戒护锛屼竴鏉″け璐ュ皾璇曞彟涓€鏉?
+- 进入终端 依次测试两条脚本命令，一条失败尝试另一条
+
 ```
 test_camera.sh
 ```
@@ -312,248 +352,300 @@ test_camera.sh
 bash test_camera.sh
 ```
 
-![Pasted image 20260725231909.png](attachments/Pasted%20image%2020260725231909.png)
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725231909 1.png](<attachments/Pasted image 20260725231909 1.png>)
 
-- 鎸変笅 **CTRL+C** 缁撴潫鍛戒护
+- 按下 **CTRL+C** 结束命令
 
-![Pasted image 20260725231920.png](attachments/Pasted%20image%2020260725231920.png)
-
-
-## 3.鑷富瑙勫垝绠楁硶閮ㄧ讲
-
-### 1-PUTTY杩炴帴
-
-![Pasted image 20260414111718.png](attachments/Pasted%20image%2020260414111718.png)
+![硬件栈/SOC/RK/rk3588/ROS栈/attachments/Pasted image 20260725231920 1.png](<attachments/Pasted image 20260725231920 1.png>)
 
 
-- 杈撳叆3588缃戝崱鐨刬p鍦板潃锛屾垨鑰呭煙鍚嶏紙璇ュ煙鍚嶈瑙ｆ瀽鍒版湇鍔″櫒锛?- 鎸囧畾绔彛锛岄粯璁ゆ槸 22绔彛銆?杩欎釜绔彛瑕佸拰鏈嶅姟鍣ㄤ笂鐨勯厤缃竴鑷达紝榛樿灏辨槸 22 绔彛)
-- 閫夋嫨杩炴帴鐨勫崗璁€?SSH鎴栬€呬覆鍙?
-- 鐐瑰嚮 open 銆?
-### 2-鐧诲綍CM5
+## 3.自主规划算法部署
 
-![Pasted image 20260414111850.png](attachments/Pasted%20image%2020260414111850.png)
+### 1-PUTTY连接
 
-ubuntu20.04 绯荤粺
-- 鐢ㄦ埗鍚?orangepi 
-- 瀵嗙⒓(灏忓 L):l 
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414111718 2.png](<attachments/Pasted image 20260414111718 2.png>)
+
+
+- 输入3588网卡的ip地址，或者域名（该域名要解析到服务器）
+- 指定端口，默认是 22端口。(这个端口要和服务器上的配置一致，默认就是 22 端口)
+- 选择连接的协议。(SSH或者串口)
+- 点击 open 。
+
+### 2-登录CM5
+
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414111850 2.png](<attachments/Pasted image 20260414111850 2.png>)
+
+ubuntu20.04 系统
+- 用戶名:orangepi 
+- 密碼(小寫 L):l 
 https://pan.baidu.com/s/1_ds5qjKl700lFKau_oatoA?pwd=ngis 
 
 
 
-### 3-ROS瀹夎
+### 3-ROS安装
 
-	楸奸ROS涓€閿畨瑁呭懡浠わ細
+	鱼香ROS一键安装命令：
 - **wget http://fishros.com/install -O fishros && . fishros 
 
-杈撳叆鍚庯細
+输入后：
 
-![Pasted image 20260414112601.png](attachments/Pasted%20image%2020260414112601.png)
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414112601 2.png](<attachments/Pasted image 20260414112601 2.png>)
 
-![Pasted image 20260414112706.png](attachments/Pasted%20image%2020260414112706.png)
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414112706 2.png](<attachments/Pasted image 20260414112706 2.png>)
 
-	涓€閿畨瑁匯OS
-- **** 杈撳叆锛?
-
-
-![Pasted image 20260414112823.png](attachments/Pasted%20image%2020260414112823.png)
-
-	鏇存崲绯荤粺婧愬畨瑁?- **** 杈撳叆锛?
-
-![Pasted image 20260414113051.png](attachments/Pasted%20image%2020260414113051.png)
-
-	浠呮洿鎹㈢郴缁熸簮
-- **** 杈撳叆锛?
-
-![Pasted image 20260414113539.png](attachments/Pasted%20image%2020260414113539.png)
-
-	閫夋嫨ROS婧?- **** 杈撳叆锛?
-
-![Pasted image 20260414113657.png](attachments/Pasted%20image%2020260414113657.png)
-
-	閫夋嫨ROS1妗岄潰鐗?- **** 杈撳叆锛?/1
+	一键安装ROS
+- **** 输入：1
 
 
-![Pasted image 20260414115323.png](attachments/Pasted%20image%2020260414115323.png)
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414112823 2.png](<attachments/Pasted image 20260414112823 2.png>)
 
-	 瀹夎鎴愬姛
+	更换系统源安装
+- **** 输入：1
+
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414113051 2.png](<attachments/Pasted image 20260414113051 2.png>)
+
+	仅更换系统源
+- **** 输入：1
+
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414113539 2.png](<attachments/Pasted image 20260414113539 2.png>)
+
+	选择ROS源
+- **** 输入：1
+
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414113657 2.png](<attachments/Pasted image 20260414113657 2.png>)
+
+	选择ROS1桌面版
+- **** 输入：1/1
+
+
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414115323 2.png](<attachments/Pasted image 20260414115323 2.png>)
+
+	 安装成功
 
 
 
-### 4-MAVROS 涓?RealSense 椹卞姩瀹夎
+### 4-MAVROS 与 RealSense 驱动安装
 
-#### 1. MAVROS 瀹夎涓庨厤缃?
+#### 1. MAVROS 安装与配置
+
 `sudo apt install -y ros-noetic-mavros` 
-浠?ROS 瀹樻柟浠撳簱瀹夎 MAVROS 鏍稿績鍖呫€俙-y` 琛ㄧず鑷姩纭锛屾棤闇€鎵嬪姩鐐瑰嚮 [Y]銆?
+从 ROS 官方仓库安装 MAVROS 核心包。`-y` 表示自动确认，无需手动点击 [Y]。
+
 `cd /opt/ros/noetic/lib/mavros` 
-杩涘叆绯荤粺 MAVROS 鐨勫簱鑴氭湰鐩綍銆?
+进入系统 MAVROS 的库脚本目录。
+
 `sudo ./install_geographiclib_datasets.sh` 
-杩愯鍦扮悊鏁版嵁闆嗕笅杞借剼鏈€傝繖鏄?MAVROS 姝ｅ父杩愯锛堝挨鍏舵槸澶勭悊 GPS 鍜屽叏鐞冨潗鏍囷級鎵€蹇呴』鐨勬暟鎹敮鎾戙€?
+运行地理数据集下载脚本。这是 MAVROS 正常运行（尤其是处理 GPS 和全球坐标）所必须的数据支撑。
+
 `sudo sed -i '5c <arg name="fcu_url" default="/dev/ttyACM0:921600" />' /opt/ros/noetic/share/mavros/launch/px4.launch`
-浣跨敤 `sed` 鍛戒护鐩存帴淇敼 MAVROS 鐨勫惎鍔ㄩ厤缃枃浠躲€傚皢绗?5 琛屾浛鎹负鎸囧畾鐨勪覆鍙ｈ澶囷紙`/dev/ttyACM0`锛夊拰娉㈢壒鐜囷紙`921600`锛夛紝杩欐槸杩炴帴 PX4 椋炴帶鐨勭‖浠堕€氳矾銆?
+使用 `sed` 命令直接修改 MAVROS 的启动配置文件。将第 5 行替换为指定的串口设备（`/dev/ttyACM0`）和波特率（`921600`），这是连接 PX4 飞控的硬件通路。
+
 ---
 
-#### 2. RealSense 椹卞姩锛圠ibRealSense锛夊畨瑁?
-`cd ~` 杩斿洖鐢ㄦ埛瀹剁洰褰曘€?
+#### 2. RealSense 驱动（LibRealSense）安装
+
+`cd ~` 返回用户家目录。
+
 `wget https://github.com/IntelRealSense/librealsense/raw/master/scripts/libuvc_installation.sh` 
-浠?GitHub 涓嬭浇 Intel 瀹樻柟鎻愪緵鐨勫熀浜?`libuvc` 鐨勫畨瑁呰剼鏈紝杩欑鏂瑰紡鍦?Arm 寮€鍙戞澘涓婇€氬父鏇寸ǔ瀹氥€?
+从 GitHub 下载 Intel 官方提供的基于 `libuvc` 的安装脚本，这种方式在 Arm 开发板上通常更稳定。
+
 `chmod +x ./libuvc_installation.sh`
-缁欎笅杞界殑鑴氭湰璧嬩簣鈥滃彲鎵ц鈥濇潈闄愶紝浣垮叾鍙互浣滀负绋嬪簭杩愯銆?
-`sed -i '12c ##'` libuvc_installation.sh`浣跨敤`sed` 淇敼鑴氭湰绗?12 琛屻€?閫氬父鏄负浜嗗睆钄芥帀鑴氭湰涓煇浜涗笉鍏煎鐨勭郴缁熸鏌ユ垨鐗瑰畾鐨勭幆澧冨彉閲忚缃€?
+给下载的脚本赋予“可执行”权限，使其可以作为程序运行。
+
+`sed -i '12c ##'` libuvc_installation.sh`使用`sed` 修改脚本第 12 行。
+通常是为了屏蔽掉脚本中某些不兼容的系统检查或特定的环境变量设置。
+
 `sed -i '47c make -j8' libuvc_installation.sh` 
-淇敼鑴氭湰绗?47 琛岋紝灏嗙紪璇戝懡浠ゆ敼涓哄绾跨▼缂栬瘧锛坄make -j8`锛夛紝浠ュ厖鍒嗗埄鐢?Orange Pi CM5 鐨?8 鏍?CPU 鎬ц兘锛屽姞蹇畨瑁呴€熷害銆?
+修改脚本第 47 行，将编译命令改为多线程编译（`make -j8`），以充分利用 Orange Pi CM5 的 8 核 CPU 性能，加快安装速度。
+
 `./libuvc_installation.sh` 
-姝ｅ紡鎵ц淇敼鍚庣殑瀹夎鑴氭湰锛屽紑濮嬩笅杞姐€佺紪璇戝苟瀹夎 RealSense 鐨勫簳灞傞┍鍔ㄥ簱銆?
-锛侊紒锛佹祴璇曠敤锛?`#realsense-viewer` 
-杩欐槸娉ㄩ噴鎺夌殑鍛戒护锛岀敤浜庡湪瀹夎瀹屾垚鍚庨€氳繃鍥惧舰鐣岄潰妫€鏌ユ憚鍍忓ご鏄惁姝ｅ父宸ヤ綔銆?
+正式执行修改后的安装脚本，开始下载、编译并安装 RealSense 的底层驱动库。
 
-### 5-vins ego 閮ㄧ讲
+！！！测试用：
+`#realsense-viewer` 
+这是注释掉的命令，用于在安装完成后通过图形界面检查摄像头是否正常工作。
 
 
-娣诲姞鐢ㄦ埛鍒?dialout 缁勶紙涓插彛鏉冮檺锛?
+### 5-vins ego 部署
+
+
+添加用户到 dialout 组（串口权限） 
 ```
 sudo usermod -a -G dialout $USER 
 ```
  
-#### 1. 浠ｇ爜鑾峰彇涓庡垵濮嬪寲
+#### 1. 代码获取与初始化
 
-![Pasted image 20260414121711.png](attachments/Pasted%20image%2020260414121711.png)
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414121711 2.png](<attachments/Pasted image 20260414121711 2.png>)
 ```
 `git clone https://github.com/ZJU-FAST-Lab/Fast-Drone-250` 
 ```
-浠?GitHub 杩滅▼浠撳簱鍏嬮殕 Fast-Drone-250 椤圭洰鐨勬簮浠ｇ爜鍒版湰鍦般€?
-![Pasted image 20260414121724.png](attachments/Pasted%20image%2020260414121724.png)
+从 GitHub 远程仓库克隆 Fast-Drone-250 项目的源代码到本地。
+
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414121724 2.png](<attachments/Pasted image 20260414121724 2.png>)
 `cd Fast-Drone-250` 
-杩涘叆鍏嬮殕濂界殑椤圭洰鏍圭洰褰曘€?
-![Pasted image 20260414121803.png](attachments/Pasted%20image%2020260414121803.png)
+进入克隆好的项目根目录。
+
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414121803 2.png](<attachments/Pasted image 20260414121803 2.png>)
 `unzip 3rd_party.zip` 
-瑙ｅ帇椤圭洰鍐呯疆鐨勭涓夋柟搴撳帇缂╁寘锛堥€氬父鍖呭惈 glog銆丆eres 绛変緷璧栨簮鐮侊級銆?
-![Pasted image 20260414122157.png](attachments/Pasted%20image%2020260414122157.png)
+解压项目内置的第三方库压缩包（通常包含 glog、Ceres 等依赖源码）。
+
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414122157 2.png](<attachments/Pasted image 20260414122157 2.png>)
 `sudo chmod 777 -R ~/Fast-Drone-250` 
-閫掑綊鍦扮粰椤圭洰鏂囦欢澶硅祴浜堟渶楂樿鍐欐墽琛屾潈闄愶紝闃叉缂栬瘧鎴栬繍琛屾椂鍥犳潈闄愪笉瓒虫姤閿欍€?
+递归地给项目文件夹赋予最高读写执行权限，防止编译或运行时因权限不足报错。
+
 ---
 
-#### 2. 缂栬瘧瀹夎 glog (Google 鏃ュ織搴?
+#### 2. 编译安装 glog (Google 日志库)
 
 `cd glog` 
-杩涘叆瑙ｅ帇鍑虹殑 glog 婧愮爜鐩綍銆?
+进入解压出的 glog 源码目录。
+
 `./autogen.sh && ./configure && make && sudo make install` 
-椤哄簭鎵ц锛氱敓鎴愰厤缃剼鏈€佹鏌ョ幆澧冪敓鎴?Makefile銆佺紪璇戜唬鐮併€佹渶鍚庡畨瑁呭埌绯荤粺鐩綍銆?
+顺序执行：生成配置脚本、检查环境生成 Makefile、编译代码、最后安装到系统目录。
+
 ---
 
-#### 3. 瀹夎绯荤粺绾ф暟瀛︿笌 ROS 渚濊禆
+#### 3. 安装系统级数学与 ROS 依赖
 
 `sudo apt install -y liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev` 
-浣跨敤 apt 鎵归噺瀹夎绾挎€т唬鏁拌繍绠楋紙LAPACK锛夈€佺█鐤忕煩闃佃繍绠椾互鍙?gflags 绛夋牳蹇冩暟瀛﹀紑鍙戝簱銆?
-![Pasted image 20260414142204.png](attachments/Pasted%20image%2020260414142204.png)
+使用 apt 批量安装线性代数运算（LAPACK）、稀疏矩阵运算以及 gflags 等核心数学开发库。
+
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414142204 2.png](<attachments/Pasted image 20260414142204 2.png>)
 `sudo apt-get install ros-noetic-ddynamic-reconfigure` 
-瀹夎 ROS Noetic 鐗堟湰鐨勫姩鎬佸弬鏁伴厤缃彃浠讹紝鐢ㄤ簬鍦ㄤ笉閲嶅惎鑺傜偣鐨勬儏鍐典笅璋冩暣鍙傛暟銆?
+安装 ROS Noetic 版本的动态参数配置插件，用于在不重启节点的情况下调整参数。
+
 ---
 
-#### 4. 缂栬瘧瀹夎 Ceres Solver (闈炵嚎鎬т紭鍖栧簱)
+#### 4. 编译安装 Ceres Solver (非线性优化库)
 
-![Pasted image 20260414142217.png](attachments/Pasted%20image%2020260414142217.png)
-![Pasted image 20260414143708.png](attachments/Pasted%20image%2020260414143708.png)
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414142217 2.png](<attachments/Pasted image 20260414142217 2.png>)
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414143708 2.png](<attachments/Pasted image 20260414143708 2.png>)
 
 
 `cd ../ceres-solver-2.0.0rc1` 
-杩斿洖涓婄骇骞惰繘鍏?Ceres 浼樺寲搴撶殑婧愮爜鐩綍銆?
+返回上级并进入 Ceres 优化库的源码目录。
+
 `mkdir build` 
-鍒涘缓缂栬瘧涓撶敤鐨?build 鏂囦欢澶癸紝淇濇寔婧愮爜鐩綍鏁存磥銆?
+创建编译专用的 build 文件夹，保持源码目录整洁。
+
 `cd build`
-杩涘叆缂栬瘧鏂囦欢澶广€?
+进入编译文件夹。
+
 `cmake ..` 
-璋冪敤 CMake 鏍规嵁鐖剁洰褰曠殑閰嶇疆鐢熸垚褰撳墠骞冲彴鐨?Makefile 缂栬瘧鏂囦欢銆?
+调用 CMake 根据父目录的配置生成当前平台的 Makefile 编译文件。
+
 `sudo make -j8` 
-璋冪敤 8 涓嚎绋嬪苟琛岀紪璇戯紙RK3588 寤鸿浣跨敤姝ゅ€嶆暟锛夛紝鏋佸ぇ缂╃煭缂栬瘧鏃堕棿銆?
+调用 8 个线程并行编译（RK3588 建议使用此倍数），极大缩短编译时间。
+
 `sudo make install` 
-灏嗙紪璇戠敓鎴愮殑搴撴枃浠跺畨瑁呭埌绯荤粺涓紝渚涘悗缁棤浜烘満绠楁硶璋冪敤銆?
+将编译生成的库文件安装到系统中，供后续无人机算法调用。
+
 ---
 
-#### 5. ROS 宸ヤ綔绌洪棿缂栬瘧涓庣幆澧冮厤缃?
-![Pasted image 20260414144624.png](attachments/Pasted%20image%2020260414144624.png)
+#### 5. ROS 工作空间编译与环境配置
+
+![硬件栈/SOC/RK/rk3588/attachments/Pasted image 20260414144624 2.png](<attachments/Pasted image 20260414144624 2.png>)
 
 `cd ../..` 
-杩斿洖鍒?Fast-Drone-250 鐨勯」鐩牴鐩綍銆?
+返回到 Fast-Drone-250 的项目根目录。
+
 `catkin_make` 
-璋冪敤 ROS 鏍囧噯缂栬瘧宸ュ叿锛岀紪璇戞暣涓?`src` 鐩綍涓嬬殑鎵€鏈夊姛鑳藉寘锛堝 VINS銆丒GO-Planner锛夈€?
+调用 ROS 标准编译工具，编译整个 `src` 目录下的所有功能包（如 VINS、EGO-Planner）。
+
 `echo "source ~/Fast-Drone-250/devel/setup.bash" >> ~/.bashrc` 
-灏嗗綋鍓嶅伐浣滅┖闂寸殑鐜鍙橀噺璺緞姘镐箙娣诲姞鍒扮敤鎴烽厤缃枃浠剁殑鏈熬銆?
+将当前工作空间的环境变量路径永久添加到用户配置文件的末尾。
+
 `source ~/.bashrc` 
-绔嬪嵆鍒锋柊褰撳墠缁堢鐨勭幆澧冨彉閲忥紝浣垮垰鎵嶆坊鍔犵殑璺緞鐢熸晥銆?
+立即刷新当前终端的环境变量，使刚才添加的路径生效。
+
 ---
 
 
-#### 6. 鏁版嵁瀛樺偍鍑嗗
+#### 6. 数据存储准备
 
 `mkdir vins_output` 
-鍒涘缓鐢ㄤ簬瀛樻斁 VINS 绠楁硶瀹炴椂杈撳嚭缁撴灉鐨勬枃浠跺す銆?
+创建用于存放 VINS 算法实时输出结果的文件夹。
+
 `mkdir -p savedfiles/output/pose_graph` 
-閫掑綊鍒涘缓浣嶅Э鍥撅紙Pose Graph锛夌殑淇濆瓨璺緞锛岀敤浜庡悗缁殑鍦板浘鍥炴斁鎴栦紭鍖栥€?
+递归创建位姿图（Pose Graph）的保存路径，用于后续的地图回放或优化。
+
 ---
 
-#### 7. 纭欢璁块棶鏉冮檺涓庡惎鍔ㄨ剼鏈?
-馃憠 鍙互鐩存帴澶嶅埗鎵ц
+#### 7. 硬件访问权限与启动脚本
+
+👉 可以直接复制执行
 ```bash
 
 cd ~  
 source ~/Fast-Drone-250/devel/setup.bash  
   
-# 1锔忊儯 RealSense锛堝繀椤诲紑 IMU锛屽惁鍒?VINS 浼氬崱锛? 
+# 1️⃣ RealSense（必须开 IMU，否则 VINS 会卡）  
 roslaunch realsense2_camera rs_camera.launch \  
 enable_gyro:=true enable_accel:=true unite_imu_method:=linear_interpolation \  
 > /tmp/realsense.log 2>&1 & sleep 5  
   
-# 2锔忊儯 MAVROS锛堣繛鎺?PX4锛? 
+# 2️⃣ MAVROS（连接 PX4）  
 roslaunch mavros px4.launch \  
 > /tmp/mavros.log 2>&1 & sleep 5  
   
-# 3锔忊儯 VINS锛堣瑙夐噷绋嬭锛? 
+# 3️⃣ VINS（视觉里程计）  
 roslaunch vins fast_drone_250.launch \  
 > /tmp/vins.log 2>&1 & sleep 5  
   
-# 4锔忊儯 EGO Planner锛堣建杩硅鍒掞級  
+# 4️⃣ EGO Planner（轨迹规划）  
 roslaunch ego_planner single_run_in_exp.launch \  
 > /tmp/ego.log 2>&1 & sleep 3  
   
-# 5锔忊儯 MAVROS 鎸囦护锛堣皟棰戯級  
+# 5️⃣ MAVROS 指令（调频）  
 rosrun mavros mavcmd long 511 105 5000 0 0 0 0 0  
 rosrun mavros mavcmd long 511 31 5000 0 0 0 0 0  
   
-# 6锔忊儯 RViz锛堝墠鍙拌繍琛岋級  
+# 6️⃣ RViz（前台运行）  
 roslaunch ego_planner rviz.launch
 
 ```
 ---
 
 `sudo usermod -a -G dialout $USER` 
-灏嗗綋鍓嶇敤鎴峰姞鍏?`dialout` 鐢ㄦ埛缁勶紝浠庤€岃幏寰楃洿鎺ヨ鍐欎覆鍙ｏ紙杩炴帴 PX4 椋炴帶锛夌殑鏉冮檺銆?
+将当前用户加入 `dialout` 用户组，从而获得直接读写串口（连接 PX4 飞控）的权限。
+
 `roslaunch realsense2_camera rs_camera.launch & sleep 5;` 
-鍚庡彴鍚姩 Intel RealSense 鎽勫儚澶撮┍鍔紝骞剁瓑寰?5 绉掔‘璁ょ‖浠跺惎鍔ㄦ垚鍔熴€?
+后台启动 Intel RealSense 摄像头驱动，并等待 5 秒确认硬件启动成功。
+
 `roslaunch mavros px4.launch & sleep 5;` 
-鍚庡彴鍚姩 MAVROS 鑺傜偣锛堝缓绔嬩笌 PX4 椋炴帶鐨勯€氫俊锛夛紝骞剁瓑寰?5 绉掋€?
+后台启动 MAVROS 节点（建立与 PX4 飞控的通信），并等待 5 秒。
+
 `roslaunch vins fast_drone_250.launch & sleep 3;
-鍚庡彴鍚姩 VINS 瑙嗚閲岀▼璁★紝杩涜鐘舵€佷及璁★紝绛夊緟 3 绉掋€?
+后台启动 VINS 视觉里程计，进行状态估计，等待 3 秒。
+
 `roslaunch ego_planner single_run_in_exp.launch & sleep 2;`
-鍚庡彴鍚姩 EGO-Planner 杞ㄨ抗瑙勫垝绠楁硶锛岀瓑寰?2 绉掋€?
+后台启动 EGO-Planner 轨迹规划算法，等待 2 秒。
+
 `rosrun mavros mavcmd long 511 105 5000 0 0 0 0 0` 
-閫氳繃 MAVROS 鍙戦€侀暱鍛戒护锛岃皟鏁撮鎺х殑娑堟伅棰戠巼锛堣繖閲岄€氬父鏄姹傞珮棰戠殑閲岀▼璁″弽棣堬級銆?
+通过 MAVROS 发送长命令，调整飞控的消息频率（这里通常是请求高频的里程计反馈）。
+
 `rosrun mavros mavcmd long 511 31 5000 0 0 0 0 0`
-鍚屼笂锛岃姹傞鎺у彂閫佺壒瀹氱殑濮挎€佹垨鐘舵€佹暟鎹€?
+同上，请求飞控发送特定的姿态或状态数据。
+
 `roslaunch ego_planner rviz.launch` 
-鍚姩 RVIZ 鍙鍖栫晫闈紝瑙傚療鏃犱汉鏈虹殑椋炶璺緞銆佸湴鍥惧強鐘舵€併€?
+启动 RVIZ 可视化界面，观察无人机的飞行路径、地图及状态。
+
 `wait;` 
-绛夊緟鎵€鏈夊悗鍙拌繍琛岀殑杩涚▼缁撴潫锛堥槻姝富鑴氭湰閫€鍑哄鑷存墍鏈夊悗鍙拌妭鐐瑰叧闂級銆?
+等待所有后台运行的进程结束（防止主脚本退出导致所有后台节点关闭）。
+
 ---
 
-#### 8. 鑷姩鍖栧弬鏁颁慨鏀?(鏂囦欢閰嶇疆)
+#### 8. 自动化参数修改 (文件配置)
 
 `sudo sed -i '16c output_path: "~/Fast-Drone-250/vins_output"' ~/Fast-Drone-250/src/realflight_modules/VINSFusion/config/fast_drone_250.yaml`
-浣跨敤 sed 鍛戒护鐩存帴淇敼閰嶇疆鏂囦欢绗?16 琛岋紝鎸囧畾 VINS 鐨勮緭鍑鸿矾寰勩€?
-`sudo sed -i '78c pose_graph_save_path: "~/Fast-Drone250/savedfiles/output/pose_graph/"' ~/Fast-Drone250/src/realflight_modules/VINS-Fusion/config/fast_drone_250.yaml` 
-淇敼閰嶇疆鏂囦欢绗?78 琛岋紝鎸囧畾浣嶅Э鍥炬暟鎹殑淇濆瓨璺緞銆? 
-浠跨湡璋冪敤 
-`roslaunch ego_planner single_run_in_sim.launch 
+使用 sed 命令直接修改配置文件第 16 行，指定 VINS 的输出路径。
 
+`sudo sed -i '78c pose_graph_save_path: "~/Fast-Drone250/savedfiles/output/pose_graph/"' ~/Fast-Drone250/src/realflight_modules/VINS-Fusion/config/fast_drone_250.yaml` 
+修改配置文件第 78 行，指定位姿图数据的保存路径。
+ 
+仿真调用 
+`roslaunch ego_planner single_run_in_sim.launch 
 
 
 
